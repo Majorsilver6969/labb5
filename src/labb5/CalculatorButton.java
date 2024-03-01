@@ -70,12 +70,17 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 			break;
 			
 		case "labb5.EqualsButton": {
+			try {
 			if (situation.state == State.Input2) {
 				situation.display.setText(Integer.toString(situation.binaryOperator.BinOp()
 						.applyAsInt(situation.leftOperand, Integer.valueOf(situation.display.getText()))));
 				situation.state = State.HasResult;
 				situation.binaryOperator.setBackground(Color.white);
 				System.out.println(situation.state);
+			} 
+				
+			}catch (java.lang.ArithmeticException e) {
+			System.out.print ("divide by zero undefined");
 			}
 		}
 			;
