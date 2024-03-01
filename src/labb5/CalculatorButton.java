@@ -23,7 +23,6 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 	}
 
 	public void transition() {
-		System.out.println(this.getClass().getName());
 		switch (this.getClass().getName()) {
 		
 		case "labb5.BinOpButton": {
@@ -33,11 +32,6 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 				this.setBackground(Color.red);
 				situation.state = State.OpReady;
 			}
-//			if (situation.state == State.OpReady) {
-//				situation.binaryOperator.setBackground(getBackground());
-//				situation.binaryOperator = (BinOpButton) this;
-//				setBackground(Color.red);
-//			}
 		}
 			break;
 			
@@ -49,9 +43,7 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 			break;
 			
 		case "labb5.DigitButton": {
-			System.out.print("DigitButton");
 			if (situation.display.getText() == "0" && namn == "0") {
-				System.out.println("Klickar på 0");
 				return;
 			} else if (situation.state == Input1 || situation.state == Input2) {
 				if (situation.display.getText() == "0") {

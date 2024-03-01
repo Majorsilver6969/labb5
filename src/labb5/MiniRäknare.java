@@ -4,6 +4,6 @@ import javax.swing.JLabel;
 
 public class MiniRäknare {
 	public static void main(String[] args) {
-		GUI ola = new GUI(new Situation(new JLabel()));
+		GUI MiniRäknare = new GUI(new Situation(new JLabel()));
 	}
 }
