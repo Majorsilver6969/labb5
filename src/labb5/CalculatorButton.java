@@ -31,6 +31,7 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 				situation.binaryOperator = (BinOpButton) this;
 				this.setBackground(Color.red);
 				situation.state = State.OpReady;
+				System.out.println(situation.state);
 			}
 		}
 			break;
@@ -39,21 +40,31 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 			situation.display.setText("0");
 			situation.state = State.Input1;
 			situation.binaryOperator.setBackground(Color.white);
+			System.out.println(situation.state);
 		}
 			break;
 			
 		case "labb5.DigitButton": {
 			if (situation.display.getText() == "0" && namn == "0") {
+				System.out.println(situation.state);
 				return;
 			} else if (situation.state == Input1 || situation.state == Input2) {
 				if (situation.display.getText() == "0") {
 					situation.display.setText(namn);
+					System.out.println(situation.state);
 					return;
 				}
 				situation.display.setText(situation.display.getText().concat(namn));
-			} else if (situation.state == OpReady || situation.state == HasResult) {
+				System.out.println(situation.state);
+			} else if (situation.state == OpReady) {
 				situation.display.setText(namn);
 				situation.state = Input2;
+				System.out.println(situation.state);
+			}
+			else if (situation.state == HasResult) {
+				situation.display.setText(namn);
+				situation.state = Input1;
+				System.out.println(situation.state);
 			}
 		}
 			break;
@@ -64,6 +75,7 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 						.applyAsInt(situation.leftOperand, Integer.valueOf(situation.display.getText()))));
 				situation.state = State.HasResult;
 				situation.binaryOperator.setBackground(Color.white);
+				System.out.println(situation.state);
 			}
 		}
 			;

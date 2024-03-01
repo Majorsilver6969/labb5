@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.util.function.IntBinaryOperator;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,7 +20,6 @@ public class GUI extends JFrame {
 	private Situation situation;
 	private JPanel Canvas; 
 	private JPanel keyPad; 
-//	private JLabel display;
 	
 	public GUI(Situation situation){
 		this.situation = situation;
@@ -27,11 +27,11 @@ public class GUI extends JFrame {
 		
 		JPanel Canvas = new JPanel(new GridBagLayout());
 		JPanel keyPad = new JPanel(new GridLayout(4, 4, 5, 5));
-//		JLabel display = new JLabel("0");
+
 		situation.display = new JLabel("0");
 		this.Canvas = Canvas; 
 		this.keyPad = keyPad; 
-//		this.display = display;
+
 		
 		IntBinaryOperator add = (x, y) -> x + y;
 		IntBinaryOperator divide = (x, y) -> x / y;
@@ -54,6 +54,7 @@ public class GUI extends JFrame {
 		situation.display.setFont(new Font("Arial", Font.PLAIN, 14));
 		situation.display.setBackground(Color.LIGHT_GRAY);
 		situation.display.setPreferredSize(new Dimension(300, 30)); // Example size, adjust as needed.
+		situation.display.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		
 		keyPad.setBackground(Color.LIGHT_GRAY);
 		Canvas.setBackground(Color.yellow);
