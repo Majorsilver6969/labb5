@@ -31,7 +31,6 @@ public class GUI extends JFrame {
 		situation.display = new JLabel("0");
 		this.Canvas = Canvas; 
 		this.keyPad = keyPad; 
-
 		
 		IntBinaryOperator add = (x, y) -> x + y;
 		IntBinaryOperator divide = (x, y) -> x / y;
@@ -49,42 +48,31 @@ public class GUI extends JFrame {
 			keyPad.add(knapp);
 		}
 		
-		situation.display.setOpaque(true);
-		situation.display.setHorizontalAlignment(JLabel.RIGHT);
-		situation.display.setFont(new Font("Arial", Font.PLAIN, 14));
+		situation.display.setOpaque(true);	// Annars går det inte att display (Kinda man kan inte se bakgrunden iallafall)
+		situation.display.setHorizontalAlignment(JLabel.RIGHT);		// Texten till höger
+		situation.display.setFont(new Font("Arial", Font.PLAIN, 14)); // Text font
 		situation.display.setBackground(Color.LIGHT_GRAY);
-		situation.display.setPreferredSize(new Dimension(300, 30)); // Example size, adjust as needed.
-		situation.display.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		situation.display.setPreferredSize(new Dimension(300, 30)); 	// Storlek på display
+		situation.display.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2)); // Border för display
 		
 		keyPad.setBackground(Color.LIGHT_GRAY);
-		Canvas.setBackground(Color.yellow);
 		
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridwidth = GridBagConstraints.REMAINDER; // This component is the last in its row.
-		gbc.fill = GridBagConstraints.HORIZONTAL; // This component should grow horizontally.
-		Canvas.add(situation.display, gbc);
+		GridBagConstraints displaygbc = new GridBagConstraints();	// https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+		displaygbc.gridwidth = GridBagConstraints.REMAINDER; //  Oracle Help Center (Specifies the number of cells in a row for the component's display area)
+		displaygbc.fill = GridBagConstraints.HORIZONTAL; // Oracle Help Center (Used when the component's display area is larger than the component's requested size to determine whether (and how) to resize the component.)
+		Canvas.add(situation.display, displaygbc);
 		
-		gbc = new GridBagConstraints();
-		gbc.gridwidth = GridBagConstraints.REMAINDER; // This component is the last in its row.
-		gbc.fill = GridBagConstraints.BOTH; // This component should grow in both dimensions.
-		gbc.weightx = 1.0; // This gives the keypad area more weight in terms of how extra space is distributed.
-		gbc.weighty = 1.0; // Same as above, but for vertical distribution.
-		Canvas.add(keyPad, gbc);
+		GridBagConstraints keyPadgbc = new GridBagConstraints();
+		keyPadgbc.gridwidth = GridBagConstraints.REMAINDER; // This component is the last in its row.
+		keyPadgbc.fill = GridBagConstraints.BOTH; // Oracle Help Center (BOTH (make the component fill its display area entirely).)
+		keyPadgbc.weightx = 1.0; // Oracle Help Center (This is important for specifying resizing behavior.)
+		keyPadgbc.weighty = 1.0; // Samma sak som ovan men för höjden
+		Canvas.add(keyPad, keyPadgbc);
 		
 		setContentPane(Canvas);
 		pack();
 		setVisible(true);
-		while(true) {
-			updateGUI();
-		}
-	}
-	
-	public void updateGUI() {
-		situation.display.repaint();
-	}
-	
-	public Situation getSituation() {
-		return situation;
+
 	}
 	
 }
