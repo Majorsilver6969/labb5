@@ -1,5 +1,5 @@
 package labb5;
-
+//Alvin och Ammar
 import static labb5.State.HasResult;
 import static labb5.State.Input1;
 import static labb5.State.Input2;
@@ -21,7 +21,8 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 		this.situation = situation;
 		this.setBackground(Color.white);
 	}
-
+	
+	
 	public void transition() {
 		switch (this.getClass().getName()) {
 		

@@ -1,5 +1,5 @@
 package labb5;
-
+//Alvin och Ammar
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 public class CancelButton extends CalculatorButton{

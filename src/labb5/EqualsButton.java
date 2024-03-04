@@ -1,5 +1,5 @@
 package labb5;
-
+//Alvin och Ammar
 import java.awt.event.ActionEvent;
 
 public class EqualsButton extends CalculatorButton{

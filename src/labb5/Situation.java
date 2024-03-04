@@ -1,5 +1,5 @@
 package labb5;
-
+//Alvin och Ammar
 import javax.swing.JLabel;
 
 public class Situation {

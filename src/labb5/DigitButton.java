@@ -1,4 +1,5 @@
 package labb5;
+//Alvin och Ammar
 import static labb5.State.*;
 import java.awt.event.ActionEvent;
 public class DigitButton extends CalculatorButton{
