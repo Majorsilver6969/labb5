@@ -33,6 +33,11 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 				situation.state = State.OpReady;
 				System.out.println(situation.state);
 			}
+			if(situation.state == State.OpReady) {
+				situation.binaryOperator.setBackground(Color.WHITE);
+				situation.binaryOperator = (BinOpButton) this;
+				this.setBackground(Color.red);
+			}
 		}
 			break;
 			
