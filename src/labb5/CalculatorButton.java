@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public abstract class CalculatorButton extends JButton implements ActionListener {
-	protected Situation situation;
+	private Situation situation;
 	private String namn;
 
 	public CalculatorButton(String namn, Situation situation) {
@@ -88,7 +88,7 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 			System.out.print ("divide by zero undefined");
 			}
 		}
-			;
+			
 			break;
 		}
 	}
