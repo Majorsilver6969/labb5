@@ -11,17 +11,26 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public abstract class CalculatorButton extends JButton implements ActionListener {
+	/**
+	 * @author Amar, Alvin
+	 * Den abstract class CalculatorButton som arvs av alla andra button klasser
+	 */
 	private Situation situation;
 	private String namn;
 
 	public CalculatorButton(String namn, Situation situation) {
+		/*
+		 * Konstruktor tar in namn och situation 
+		 */
 		super(namn);
 		this.namn = namn;
 		this.addActionListener(this);
 		this.situation = situation;
 		this.setBackground(Color.white);
 	}
-
+	/**
+	 * Här har vi den stora switch satsen som håller koll på all logik
+	 */
 	public void transition() {
 		switch (this.getClass().getName()) {
 		
@@ -92,15 +101,4 @@ public abstract class CalculatorButton extends JButton implements ActionListener
 			break;
 		}
 	}
-
-	public void setColor() {
-	}
-
-	public String toString() {
-		return null;
-	}
-
-	public void displayReset() {
-	}
-
 }

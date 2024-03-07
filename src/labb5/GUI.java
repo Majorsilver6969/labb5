@@ -15,13 +15,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class GUI extends JFrame {
-	
+	/**
+	 * @author Amar,Alvin
+	 */
 	private Situation situation;
 	private JPanel Canvas; 
 	private JPanel keyPad; 
-	
+	/**
+	 * Konstruktor som tar in situation som parameter.
+	 * @param situation, GUI används för att hålla på vilken tillstånd man är i.
+	 */
 	public GUI(Situation situation){
+
 		this.situation = situation;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
